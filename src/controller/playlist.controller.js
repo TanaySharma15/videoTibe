@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 
 const createPlaylist = asyncHandler(async (req, res) => {
     const { name, description } = req.body
-    const videos = r
+
     //TODO: create playlist
 
     try {
