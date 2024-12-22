@@ -1,6 +1,8 @@
-import { Subscription } from "../models/subscription.models"
-import { ApiError } from "../utils/ApiError"
-import { ApiResponse } from "../utils/ApiResponse"
+import { Subscription } from "../models/subscription.models.js"
+import { ApiError } from "../utils/apiError.js"
+import { ApiResponse } from "../utils/apiResponse.js"
+import { asyncHandler } from "../utils/asyncHandler.js"
+
 
 const toggleSubscription = asyncHandler(async (req, res) => {
     const { channelId } = req.params
