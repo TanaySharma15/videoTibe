@@ -28,7 +28,7 @@ const getAllVideos = asyncHandler(async (req, res) => {
 
         const videos = await Video.find().sort(sortOptions).skip((pageNumber - 1) * limitNumber).limit(limitNumber)
 
-        const totalVideo = await Video.countDocument(searchQuery)
+        const totalVideo = await Video.countDocuments(searchQuery)
 
         return res.status(200).json({
             success: true, data: videos,

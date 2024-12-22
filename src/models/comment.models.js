@@ -11,10 +11,8 @@ import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const commentSchema = new Schema({
     video: {
-        type: {
-            type: Schema.Types.ObjectId,
-            ref: "Video"
-        }
+        type: Schema.Types.ObjectId,
+        ref: "Video"
     },
     owner: {
         type: Schema.Types.ObjectId,

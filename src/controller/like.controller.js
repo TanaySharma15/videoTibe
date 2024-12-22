@@ -12,7 +12,10 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
             likedBy: req.user._id
         })
         if (existingLike) {
-            await existingLike.remove()
+            await Like.deleteOne({
+                video: videoId,
+                likedBy: req.user._id
+            })
             return res.status(200).json(new ApiResponse(200, null, "Like removed"))
         } else {
             const newLike = await Like.create({
@@ -40,7 +43,10 @@ const toggleCommentLike = asyncHandler(async (req, res) => {
             likedBy: req.user._id
         })
         if (commentLike) {
-            await commentLike.remove()
+            await Like.deleteOne({
+                comment: commentId,
+                likedBy: req.user._id
+            })
             return res
                 .status(200)
                 .json(new ApiResponse(200, null, "Like removed from comment"))
@@ -69,7 +75,10 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
             likedBy: req.user._id
         })
         if (tweetLike) {
-            await tweetLike.remove()
+            await Like.deleteOne({
+                tweet: tweetId,
+                likedBy: req.user._id
+            })
             return res.status(200).json(new ApiResponse(200, null, "Like removed from tweet"))
         } else {
             const newLike = await Like.create({
