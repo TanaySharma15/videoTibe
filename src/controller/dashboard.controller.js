@@ -1,5 +1,5 @@
 import { Video } from "../models/videos.model.js"
-import { asyncHandler } from "../middlewares/asyncHandler.js"
+import { asyncHandler } from "../utils/asyncHandler.js"
 import { ApiResponse } from "../utils/apiResponse.js"
 import { ApiError } from "../utils/apiError.js"
 const getChannelStats = asyncHandler(async (req, res) => {
